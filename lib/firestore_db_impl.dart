@@ -1,5 +1,11 @@
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'data/data_sources/fire_store_db_crud_service_impl.dart';
+export 'data/data_sources/firestore_db_service_impl.dart';
+export 'data/data_sources/i_data_sources/i_fire_store_db_crud_service.dart';
+export 'data/data_sources/i_data_sources/i_firestor_bd_service.dart';
+export 'extensions/document_entry_list_extension.dart';
+export 'extensions/document_snapshot_extension.dart';
+export 'extensions/fire_store_document_snapshot_extension.dart';
+export 'extensions/qery_snapshot_extension.dart';
+export 'extensions/query_extension.dart';
+export 'utils/exceptions/exception_handler/fire_store_exception_handler.dart';
+export 'utils/exceptions/fire_store_exceptions.dart';
