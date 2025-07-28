@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.0.2+1
+- Update dependencies.
+
+## 0.0.2
+- Created register Fire Store Data Source Service GetIt DI.
+- Update Export File.
+
 ## 0.0.1
 ### Added
 - Initial release of `firestore_db_impl` package.
