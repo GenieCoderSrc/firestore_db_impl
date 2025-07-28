@@ -15,8 +15,8 @@ dependencies:
 
   language_translator:
     path: ../language_translator
-  navigation_wihout_context:
-    path: ../navigation_wihout_context
+  navigation_without_context:
+    path: ../navigation_without_context
   app_toast:
     path: ../app_toast
 
