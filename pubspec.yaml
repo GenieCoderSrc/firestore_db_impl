@@ -13,15 +13,18 @@ dependencies:
   flutter:
     sdk: flutter
 
-  language_translator: ^0.0.1
+  language_translator:
+    path: ../language_translator
+  navigation_wihout_context:
+    path: ../navigation_wihout_context
+  app_toast:
+    path: ../app_toast
 
-
-  navigation_wihout_context: ^0.0.1
-  app_toast: ^0.0.4+1
   cloud_firestore: ^5.6.2
   firebase_auth: ^5.4.1
   #  firebase_database: ^10.2.4
   fluttertoast: ^8.2.10
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
