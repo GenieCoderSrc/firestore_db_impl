@@ -8,12 +8,10 @@ enum QueryType {
   whereLessThan,
   whereLessThanOrEqual,
   whereIn, // array value
-
   // No Value
   orderBy, // boolean value
   ascendingOrder, // no value
   descendingOrder, // no value
-
   // No Field
   limit, // int value
   startAt, // Single or Array value

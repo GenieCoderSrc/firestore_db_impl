@@ -6,7 +6,7 @@ class FireStoreCollectionRefServiceImpl extends IFireStoreCollectionRefService {
   final FirebaseFirestore _fireStoreDb;
 
   FireStoreCollectionRefServiceImpl({FirebaseFirestore? fireStoreDb})
-      : _fireStoreDb = fireStoreDb ?? FirebaseFirestore.instance;
+    : _fireStoreDb = fireStoreDb ?? FirebaseFirestore.instance;
 
   @override
   // CollectionReference<Object?>

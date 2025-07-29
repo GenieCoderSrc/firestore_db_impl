@@ -20,7 +20,9 @@ extension QueryExtension on Query<Object?> {
   }
 
   Query<Object?> applySingleFieldQueryParameter(
-      Query<Object?> query, QueryParameter param) {
+    Query<Object?> query,
+    QueryParameter param,
+  ) {
     String? field = param.field;
     if (field == null) {
       return query;
@@ -56,7 +58,9 @@ extension QueryExtension on Query<Object?> {
   }
 
   Query<Object?> applySingleHelperQueryParameter(
-      Query<Object?> query, QueryParameter param) {
+    Query<Object?> query,
+    QueryParameter param,
+  ) {
     switch (param.type) {
       case QueryType.limit:
         return query.limit(param.value);

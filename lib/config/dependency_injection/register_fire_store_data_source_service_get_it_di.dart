@@ -11,6 +11,6 @@ void registerFireStoreDataSourceServiceGetItDI() {
 
   /// Service
   sl.registerLazySingleton<IFireStoreDbCrudService>(
-        () => FireStoreDbCrudServiceImpl(),
+    () => FireStoreDbCrudServiceImpl(),
   );
 }

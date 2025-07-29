@@ -37,7 +37,9 @@ class _FirestoreHomePageState extends State<FirestoreHomePage> {
   }
 
   Future<void> _loadUsers() async {
-    final results = await _service.getAllDocuments(collectionPath: _collectionPath);
+    final results = await _service.getAllDocuments(
+      collectionPath: _collectionPath,
+    );
     setState(() {
       _users = results ?? [];
     });

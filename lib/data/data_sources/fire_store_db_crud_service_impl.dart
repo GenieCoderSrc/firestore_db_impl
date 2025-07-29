@@ -17,15 +17,16 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
   final FirebaseFirestore _fireStoreDb;
 
   FireStoreDbCrudServiceImpl({FirebaseFirestore? fireStoreDb})
-      : _fireStoreDb = fireStoreDb ?? FirebaseFirestore.instance;
+    : _fireStoreDb = fireStoreDb ?? FirebaseFirestore.instance;
 
   late CollectionReference<Map<String, dynamic>> _collectionReference;
 
   @override
-  Future<String?> saveDocument(
-      {required Map<String, dynamic> data,
-      required String collectionPath,
-      String? successTxt}) async {
+  Future<String?> saveDocument({
+    required Map<String, dynamic> data,
+    required String collectionPath,
+    String? successTxt,
+  }) async {
     try {
       _collectionReference = _fireStoreDb.collection(collectionPath);
       DocumentReference<Object?> value = await _collectionReference.add(data);
@@ -37,30 +38,34 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
       return value.id;
     } catch (e) {
       debugPrint(
-          "FireStoreDbServiceImpl | saveDocument | Failed to add data for: $e");
+        "FireStoreDbServiceImpl | saveDocument | Failed to add data for: $e",
+      );
       final FireStoreException exception =
           FireStoreExceptionHandler.handleException(e);
       AppToast.showToast(
-          msg:
-              "${'failed_to_add_data_for'.translateWithoutContext()} ${exception.message.translateWithoutContext()}");
+        msg:
+            "${'failed_to_add_data_for'.translateWithoutContext()} ${exception.message.translateWithoutContext()}",
+      );
       throw exception.message;
     }
   }
 
   @override
-  Future<bool> setDocument(
-      {required Map<String, dynamic> data,
-      required String collectionPath,
-      required String id,
-      bool merge = true,
-      String? successTxt}) async {
+  Future<bool> setDocument({
+    required Map<String, dynamic> data,
+    required String collectionPath,
+    required String id,
+    bool merge = true,
+    String? successTxt,
+  }) async {
     try {
       _collectionReference = _fireStoreDb.collection(collectionPath);
 
       await _collectionReference.doc(id).set(data, SetOptions(merge: merge));
 
       debugPrint(
-          'FireStoreDbCrudServiceImpl | setDocument |   Successfully Added: ${data.toString()}');
+        'FireStoreDbCrudServiceImpl | setDocument |   Successfully Added: ${data.toString()}',
+      );
 
       if (successTxt != null) {
         AppToast.showToast(msg: successTxt);
@@ -76,16 +81,18 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
   }
 
   @override
-  Future<bool> updateDocument(
-      {required Map<String, dynamic> data,
-      required String collectionPath,
-      required String id,
-      String? successTxt}) async {
+  Future<bool> updateDocument({
+    required Map<String, dynamic> data,
+    required String collectionPath,
+    required String id,
+    String? successTxt,
+  }) async {
     try {
       _collectionReference = _fireStoreDb.collection(collectionPath);
       await _collectionReference.doc(id).update(data);
       debugPrint(
-          "FireStoreDbServiceImpl | updateDocument | Data Updated Successfully.\nData: $data");
+        "FireStoreDbServiceImpl | updateDocument | Data Updated Successfully.\nData: $data",
+      );
       if (successTxt != null && successTxt.isNotEmpty) {
         AppToast.showToast(msg: successTxt);
       }
@@ -101,10 +108,11 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
   }
 
   @override
-  Future<bool> removeDocument(
-      {required String collectionPath,
-      required String id,
-      String? successTxt}) async {
+  Future<bool> removeDocument({
+    required String collectionPath,
+    required String id,
+    String? successTxt,
+  }) async {
     try {
       _collectionReference = _fireStoreDb.collection(collectionPath);
       await _collectionReference.doc(id).delete();
@@ -128,8 +136,10 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
   // ---------- Get Single Future Data by ID ------------
 
   @override
-  Future<Map<String, dynamic>?> getDocumentById(
-      {required String collectionPath, required String id}) async {
+  Future<Map<String, dynamic>?> getDocumentById({
+    required String collectionPath,
+    required String id,
+  }) async {
     try {
       _collectionReference = _fireStoreDb.collection(collectionPath);
       DocumentSnapshot<Object?>? snapshot =
@@ -155,17 +165,20 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
   }) async {
     try {
       _collectionReference = _fireStoreDb.collection(collectionPath);
-      Query<Object?> query =
-          _collectionReference.applyQueryParameters(queryParameters);
+      Query<Object?> query = _collectionReference.applyQueryParameters(
+        queryParameters,
+      );
       QuerySnapshot<Object?> querySnapshot = await query.get();
 
       debugPrint(
-          'FireStoreDbServiceImpl | getAllDocumentsWithQuery | ID: ${querySnapshot.docs.first.id} data: ${querySnapshot.docs.first.data().toString()}');
+        'FireStoreDbServiceImpl | getAllDocumentsWithQuery | ID: ${querySnapshot.docs.first.id} data: ${querySnapshot.docs.first.data().toString()}',
+      );
 
       return querySnapshot.toListOfMaps();
     } catch (e) {
       debugPrint(
-          'FireStoreDbServiceImpl | getAllDocumentsWithQuery | error: $e');
+        'FireStoreDbServiceImpl | getAllDocumentsWithQuery | error: $e',
+      );
       final FireStoreException exception =
           FireStoreExceptionHandler.handleException(e);
 
@@ -184,8 +197,8 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
     _collectionReference = _fireStoreDb.collection(collectionPath);
     Query query = _collectionReference.applyQueryParameters(queryParameters);
 
-    return query
-        .snapshots()
-        .map((querySnapshot) => querySnapshot.toListOfMaps());
+    return query.snapshots().map(
+      (querySnapshot) => querySnapshot.toListOfMaps(),
+    );
   }
 }

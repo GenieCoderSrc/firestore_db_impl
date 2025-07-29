@@ -149,31 +149,38 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 abstract class IFireStoreDbService {
   // ---------- FireStore CRUD Operations ------------
 
-  Future<dynamic> saveDocument(
-      {Map<String, dynamic>? data, required String path, String? successTxt});
+  Future<dynamic> saveDocument({
+    Map<String, dynamic>? data,
+    required String path,
+    String? successTxt,
+  });
 
-  Future<bool> addDocWithServerTime(
-      {required Map<String?, dynamic> data,
-      required String path,
-      required String timeField,
-      String? successTxt});
+  Future<bool> addDocWithServerTime({
+    required Map<String?, dynamic> data,
+    required String path,
+    required String timeField,
+    String? successTxt,
+  });
 
-  Future<String?> setDocumentAutoId(
-      {required Map<String, dynamic> data,
-      required String path,
-      String? successTxt});
+  Future<String?> setDocumentAutoId({
+    required Map<String, dynamic> data,
+    required String path,
+    String? successTxt,
+  });
 
-  Future<bool> setDocument(
-      {required Map<String, dynamic> data,
-      required String path,
-      required String id,
-      String? successTxt});
+  Future<bool> setDocument({
+    required Map<String, dynamic> data,
+    required String path,
+    required String id,
+    String? successTxt,
+  });
 
-  Future<bool> updateDocument(
-      {required Map<String, dynamic> data,
-      required String path,
-      required String id,
-      String? successTxt});
+  Future<bool> updateDocument({
+    required Map<String, dynamic> data,
+    required String path,
+    required String id,
+    String? successTxt,
+  });
 
   Future<bool> removeDocument({
     required String path,
@@ -183,8 +190,10 @@ abstract class IFireStoreDbService {
 
   // ---------- Get Single Future Data by ID ------------
 
-  Future<DocumentSnapshot<Object?>?> getDocumentById(
-      {required String path, required String id});
+  Future<DocumentSnapshot<Object?>?> getDocumentById({
+    required String path,
+    required String id,
+  });
 
   // ---------- Get Single Stream Data by ID ------------
 
@@ -192,17 +201,21 @@ abstract class IFireStoreDbService {
 
   // ---------- Future Data Collections ------------
 
-  Future<QuerySnapshot<Map<String, dynamic>>?> getDataCollection(
-      {required String path,
-      int? limit,
-      String? orderByField,
-      bool? isDescending});
+  Future<QuerySnapshot<Map<String, dynamic>>?> getDataCollection({
+    required String path,
+    int? limit,
+    String? orderByField,
+    bool? isDescending,
+  });
 
-  Future<QuerySnapshot<Map<String, dynamic>>?> getDataCollectionWithWhere(
-      {required String path, required String field, String? isEqualTo});
+  Future<QuerySnapshot<Map<String, dynamic>>?> getDataCollectionWithWhere({
+    required String path,
+    required String field,
+    String? isEqualTo,
+  });
 
   Future<QuerySnapshot<Map<String, dynamic>>?>
-      getDataCollectionWithWhereLimitOrderBy({
+  getDataCollectionWithWhereLimitOrderBy({
     required String path,
     required String whereField,
     String? isEqualTo,
@@ -213,12 +226,13 @@ abstract class IFireStoreDbService {
 
   // ---------- Get Collection Reference with Two Where Clauses ------------
 
-  Query<Map<String, dynamic>> getCollectionRefWithWhere2(
-      {required String path,
-      required String field1,
-      required isEqualTo1,
-      required String field2,
-      required isEqualTo2});
+  Query<Map<String, dynamic>> getCollectionRefWithWhere2({
+    required String path,
+    required String field1,
+    required isEqualTo1,
+    required String field2,
+    required isEqualTo2,
+  });
 
   // ---------- Get Collection Reference with Three Where Clauses ------------
 
@@ -238,10 +252,11 @@ abstract class IFireStoreDbService {
 
   // ---------- Stream Collection Operations With Conditions ------------
 
-  Stream<List<Object?>>? streamDataCollectionWithOrderBy(
-      {required String path,
-      required String orderByField,
-      bool descending = false});
+  Stream<List<Object?>>? streamDataCollectionWithOrderBy({
+    required String path,
+    required String orderByField,
+    bool descending = false,
+  });
 
   Stream<List<Object?>>? streamDataCollectionWithOrderByAndLimit({
     required String path,
@@ -264,34 +279,38 @@ abstract class IFireStoreDbService {
     dynamic isEqualTo2,
   });
 
-  Stream<List<Object?>>? streamCollectionWhereArrayContains(
-      {required String path,
-      required String field,
-      String? arrayContains,
-      required String orderByField,
-      bool descending = false});
+  Stream<List<Object?>>? streamCollectionWhereArrayContains({
+    required String path,
+    required String field,
+    String? arrayContains,
+    required String orderByField,
+    bool descending = false,
+  });
 
-  Stream<List<Object?>>? streamCollectionWhereIn(
-      {required String path,
-      required String field,
-      List<Object?>? whereIn,
-      required String orderByField,
-      bool descending = false});
+  Stream<List<Object?>>? streamCollectionWhereIn({
+    required String path,
+    required String field,
+    List<Object?>? whereIn,
+    required String orderByField,
+    bool descending = false,
+  });
 
-  Stream<List<Object?>>? streamCollectionWhereInWithWhere(
-      {required String path,
-      required String field,
-      required dynamic isEqualTo,
-      required String whereInField,
-      required List<Object?> whereIn,
-      required String orderByField,
-      bool descending = false});
+  Stream<List<Object?>>? streamCollectionWhereInWithWhere({
+    required String path,
+    required String field,
+    required dynamic isEqualTo,
+    required String whereInField,
+    required List<Object?> whereIn,
+    required String orderByField,
+    bool descending = false,
+  });
 
   // ---------- Search Future Data Collections ------------
 
-  Future<List<DocumentSnapshot<Object?>>>? searchData(
-      {required String searchKey,
-      required String path,
-      required String orderBy,
-      bool descending = false});
+  Future<List<DocumentSnapshot<Object?>>>? searchData({
+    required String searchKey,
+    required String path,
+    required String orderBy,
+    bool descending = false,
+  });
 }
