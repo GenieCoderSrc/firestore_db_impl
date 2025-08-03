@@ -6,7 +6,7 @@ repository: https://github.com/GenieCoderSrc/firestore_db_impl
 issue_tracker: https://github.com/GenieCoderSrc/firestore_db_impl/issues
 
 environment:
-  sdk: ^3.7.2
+  sdk: ^3.8.1
   flutter: ">=1.17.0"
 
 dependencies:
@@ -23,7 +23,7 @@ dependencies:
   cloud_firestore: ^6.0.0
   firebase_auth: ^6.0.0
   firebase_database: ^12.0.0
-  fluttertoast: ^8.2.10
+  fluttertoast: ^8.2.12
 
 dev_dependencies:
   flutter_test:
