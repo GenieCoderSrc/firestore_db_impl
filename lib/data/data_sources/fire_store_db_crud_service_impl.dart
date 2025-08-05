@@ -142,8 +142,9 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
   }) async {
     try {
       _collectionReference = _fireStoreDb.collection(collectionPath);
-      DocumentSnapshot<Object?>? snapshot =
-          await _collectionReference.doc(id).get();
+      DocumentSnapshot<Object?>? snapshot = await _collectionReference
+          .doc(id)
+          .get();
 
       return snapshot.toMap();
     } catch (e) {

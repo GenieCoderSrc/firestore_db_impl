@@ -521,12 +521,11 @@ class FireStoreDbServiceImpl extends IFireStoreDbService {
   }) async {
     try {
       _ref = _fireStoreDb.collection(path);
-      final snapshot =
-          await _ref
-              .orderBy(orderBy, descending: descending)
-              .startAt([searchKey])
-              .endAt(['$searchKey\uf8ff'])
-              .get();
+      final snapshot = await _ref
+          .orderBy(orderBy, descending: descending)
+          .startAt([searchKey])
+          .endAt(['$searchKey\uf8ff'])
+          .get();
       return snapshot.docs;
     } catch (e) {
       debugPrint('FireStoreDbServiceImpl | searchData | error: $e');
