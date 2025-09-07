@@ -1,6 +1,6 @@
 name: firestore_db_impl
 description: "A Flutter package that simplifies Firestore operations by providing structured CRUD methods, query abstraction, custom exceptions, and utility services for timestamps and counters."
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/GenieCoderSrc/firestore_db_impl
 repository: https://github.com/GenieCoderSrc/firestore_db_impl
 issue_tracker: https://github.com/GenieCoderSrc/firestore_db_impl/issues
@@ -18,9 +18,9 @@ dependencies:
   app_toast: ^0.0.5
   get_it_di_global_variable: ^0.0.6
 
-  cloud_firestore: ^6.0.0
-  firebase_auth: ^6.0.1
-  firebase_database: ^12.0.0
+  cloud_firestore: ^6.0.1
+  firebase_auth: ^6.0.2
+  firebase_database: ^12.0.1
 
 dev_dependencies:
   flutter_test:
