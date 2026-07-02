@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'i_data_sources/i_fire_store_Iterator_service.dart';
+import 'i_data_sources/i_fire_store_iterator_service.dart';
 
 class FireStoreIteratorServiceImpl extends IFireStoreIteratorService {
   @override
