@@ -2,14 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-
 ## 0.0.8
 
 ### Jul 2, 2026
 
 ### ✨ Fixed
 
-- Fixed import.
+- Fixed `i_fire_store_iterator_service` import.
 - firebase_auth to 6.5.4.
 - firebase_database to 12.4.4.
 
