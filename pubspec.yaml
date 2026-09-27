@@ -13,9 +13,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  language_translator: ^0.0.8
+  language_translator: ^0.0.9
   navigation_without_context: ^0.0.5
-  app_toast: ^0.0.6
+  app_toast: ^0.0.7
   get_it_di_global_variable: ^0.0.8
 
   cloud_firestore: ^6.10.0
