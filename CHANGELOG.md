@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.0.9
+
+### Sep 26, 2026
+
+### ✨ Updated
+
+- Updated `cloud_firestore ^6.10.0`
+- Updated `firebase_auth ^6.7.0`
+- Updated `firebase_database ^12.6.0`
+
 ## 0.0.8
 
 ### Jul 2, 2026
