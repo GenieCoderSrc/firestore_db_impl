@@ -16,6 +16,8 @@
 ### Installation
 Add the following to your `pubspec.yaml`:
 ```yaml
+resolution: workspace
+
 dependencies:
   firestore_db_impl: <latest_version>
 ```
