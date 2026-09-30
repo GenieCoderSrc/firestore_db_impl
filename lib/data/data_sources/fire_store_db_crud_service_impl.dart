@@ -17,7 +17,7 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
   final FirebaseFirestore _fireStoreDb;
 
   FireStoreDbCrudServiceImpl({FirebaseFirestore? fireStoreDb})
-    : _fireStoreDb = fireStoreDb ?? FirebaseFirestore.instance;
+      : _fireStoreDb = fireStoreDb ?? FirebaseFirestore.instance;
 
   late CollectionReference<Map<String, dynamic>> _collectionReference;
 
@@ -142,9 +142,8 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
   }) async {
     try {
       _collectionReference = _fireStoreDb.collection(collectionPath);
-      DocumentSnapshot<Object?>? snapshot = await _collectionReference
-          .doc(id)
-          .get();
+      DocumentSnapshot<Object?>? snapshot =
+          await _collectionReference.doc(id).get();
 
       return snapshot.toMap();
     } catch (e) {
@@ -199,7 +198,7 @@ class FireStoreDbCrudServiceImpl extends IFireStoreDbCrudService {
     Query query = _collectionReference.applyQueryParameters(queryParameters);
 
     return query.snapshots().map(
-      (querySnapshot) => querySnapshot.toListOfMaps(),
-    );
+          (querySnapshot) => querySnapshot.toListOfMaps(),
+        );
   }
 }

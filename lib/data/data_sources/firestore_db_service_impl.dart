@@ -13,7 +13,7 @@ class FireStoreDbServiceImpl extends IFireStoreDbService {
   // final FirebaseFirestore _db = firebaseService.getFireStoreInstance;
 
   FireStoreDbServiceImpl({FirebaseFirestore? fireStoreDb})
-    : _fireStoreDb = fireStoreDb ?? FirebaseFirestore.instance;
+      : _fireStoreDb = fireStoreDb ?? FirebaseFirestore.instance;
 
   final FirebaseFirestore _fireStoreDb;
   late CollectionReference<Object?> _ref;
@@ -238,10 +238,11 @@ class FireStoreDbServiceImpl extends IFireStoreDbService {
     required isEqualTo1,
     required String field2,
     required isEqualTo2,
-  }) => _fireStoreDb
-      .collection(path)
-      .where(field1, isEqualTo: isEqualTo1)
-      .where(field2, isEqualTo: isEqualTo2);
+  }) =>
+      _fireStoreDb
+          .collection(path)
+          .where(field1, isEqualTo: isEqualTo1)
+          .where(field2, isEqualTo: isEqualTo2);
 
   @override
   // Query<Object?>
@@ -253,11 +254,12 @@ class FireStoreDbServiceImpl extends IFireStoreDbService {
     dynamic isEqualTo2,
     required String field3,
     dynamic isEqualTo3,
-  }) => _fireStoreDb
-      .collection(path)
-      .where(field1, isEqualTo: isEqualTo1)
-      .where(field2, isEqualTo: isEqualTo2)
-      .where(field3, isEqualTo: isEqualTo3);
+  }) =>
+      _fireStoreDb
+          .collection(path)
+          .where(field1, isEqualTo: isEqualTo1)
+          .where(field2, isEqualTo: isEqualTo2)
+          .where(field3, isEqualTo: isEqualTo3);
 
   @override
   Future<QuerySnapshot<Map<String, dynamic>>?> getDataCollection({
@@ -271,10 +273,9 @@ class FireStoreDbServiceImpl extends IFireStoreDbService {
 
       if (limit != null) {
         return await _ref
-                .limit(limit)
-                .orderBy(orderByField ?? '', descending: isDescending ?? false)
-                .get()
-            as QuerySnapshot<Map<String, dynamic>>?;
+            .limit(limit)
+            .orderBy(orderByField ?? '', descending: isDescending ?? false)
+            .get() as QuerySnapshot<Map<String, dynamic>>?;
       }
 
       return await _ref.get() as QuerySnapshot<Map<String, dynamic>>?;
@@ -316,7 +317,7 @@ class FireStoreDbServiceImpl extends IFireStoreDbService {
 
   @override
   Future<QuerySnapshot<Map<String, dynamic>>?>
-  getDataCollectionWithWhereLimitOrderBy({
+      getDataCollectionWithWhereLimitOrderBy({
     required String path,
     required String whereField,
     String? isEqualTo,
@@ -327,11 +328,10 @@ class FireStoreDbServiceImpl extends IFireStoreDbService {
     try {
       _ref = _fireStoreDb.collection(path);
       return await _ref
-              .where(whereField, isEqualTo: isEqualTo)
-              .limit(limit)
-              .orderBy(orderByField, descending: isDescending)
-              .get()
-          as QuerySnapshot<Map<String, dynamic>>?;
+          .where(whereField, isEqualTo: isEqualTo)
+          .limit(limit)
+          .orderBy(orderByField, descending: isDescending)
+          .get() as QuerySnapshot<Map<String, dynamic>>?;
     } catch (e) {
       debugPrint(
         'FireStoreDbServiceImpl | getDataCollectionWithWhereLimitOrderBy | error: $e',
@@ -523,9 +523,7 @@ class FireStoreDbServiceImpl extends IFireStoreDbService {
       _ref = _fireStoreDb.collection(path);
       final snapshot = await _ref
           .orderBy(orderBy, descending: descending)
-          .startAt([searchKey])
-          .endAt(['$searchKey\uf8ff'])
-          .get();
+          .startAt([searchKey]).endAt(['$searchKey\uf8ff']).get();
       return snapshot.docs;
     } catch (e) {
       debugPrint('FireStoreDbServiceImpl | searchData | error: $e');

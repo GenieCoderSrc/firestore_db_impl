@@ -215,7 +215,7 @@ abstract class IFireStoreDbService {
   });
 
   Future<QuerySnapshot<Map<String, dynamic>>?>
-  getDataCollectionWithWhereLimitOrderBy({
+      getDataCollectionWithWhereLimitOrderBy({
     required String path,
     required String whereField,
     String? isEqualTo,
